@@ -1,0 +1,9 @@
+.bg-image {
+    // background-image: url(src/assets/images/Congress.JPG);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(src/assets/images/Congress.JPG);
+    height: 100%; 
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}

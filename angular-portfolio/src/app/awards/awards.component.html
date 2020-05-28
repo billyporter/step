@@ -1,0 +1,18 @@
+<div class="awards">
+    <mat-toolbar color="primary">
+        <span>Awards and Honors</span>
+    </mat-toolbar>
+    <div class="flex-container">
+        <div class="years">
+            <div *ngFor="let awd of awards; let i=index"
+            (click)="onSelect(awd)">
+                <ng-container *ngIf="i === 0 || awd.year !== awards[i-1].year">
+                    <button mat-raised-button color="primary">{{awd.year}}</button>
+                </ng-container>
+            </div>
+        </div>
+        <div class="pictures">
+            <app-award-detail [award]="selectedAward"></app-award-detail>
+        </div>
+    </div>
+</div>

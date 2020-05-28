@@ -1,0 +1,38 @@
+
+.name {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -5%;
+    margin-left: -20%;
+    box-sizing: border-box;
+    height: 25%;
+    width: 40%;
+    text-align: center;
+    background-color: rgb(47, 54, 64, 0.5);
+
+    border-radius: 2vw !important;
+    border-style: solid;
+    // outline-color:rgb(63, 81, 181);
+    border-color: white;
+}
+
+.my-button {
+    text-transform: uppercase;
+    opacity: 1.0;
+    margin-top: 2vw;
+    font-size: 1.5vw;
+    width: 12vw;
+    height: 3.5vw !important;
+    // font-family: 'Lato' !important;
+}
+
+#header {
+    margin-top: 5%;
+    font-size: 3vw;
+    text-transform: uppercase;
+    font-weight: 50%;
+    color: white;
+
+    // font-family: 'Lato' !important;
+}

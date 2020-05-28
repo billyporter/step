@@ -1,0 +1,52 @@
+.awards {
+    background-color: #ecf0f1;
+    height: 65vh;
+
+    .flex-container {
+        align-items: center;
+        flex-direction: row;
+        display: flex;
+        position: relative;
+
+        .years {
+            flex-direction: columns;
+            height: 100%;
+            width: 20%;
+
+            div {
+                margin-left: 20%;
+                margin-right: 20%;
+                margin-top: 20%;
+            }
+        }
+
+        .pictures {
+            width: 80%;
+            height: 100%;
+        }
+        
+    }
+}
+
+button:hover {
+    color: "warn";
+    opacity: 0.5;
+}
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .awards {
+
+        .flex-container {
+
+            flex-direction: column;
+    
+            .years {
+                flex-direction: row;
+            }
+            
+        }
+    }
+}
+
+
