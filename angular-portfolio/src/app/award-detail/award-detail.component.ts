@@ -10,7 +10,7 @@ import { AwardsService } from '../awards.service';
 export class AwardDetailComponent implements OnInit {
 
   awards: Awards[];
-  @Input() award: number;
+  @Input() awardYear: number;
   hoverIndex: number;
   current:  Awards;
 
@@ -22,7 +22,9 @@ export class AwardDetailComponent implements OnInit {
 
   getAwards(): void {
     this.awardService.getAwards()
-      .subscribe(awards => this.awards = awards);
+      .subscribe(awards => {
+        this.awards = awards;
+      });
   }
 
   enter(current: Awards): void {

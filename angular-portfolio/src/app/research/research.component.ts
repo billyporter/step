@@ -7,15 +7,12 @@ import { Res } from '../res-template';
   templateUrl: './research.component.html',
   styleUrls: ['./research.component.scss']
 })
-export class ResearchComponent implements OnInit {
+export class ResearchComponent {
 
   research: Res[];
 
   constructor(private researchService: ResearchService) {
     this.getResearch();
-  }
-
-  ngOnInit(): void {
   }
 
   getResearch(): void {

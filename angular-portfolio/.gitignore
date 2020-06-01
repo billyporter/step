@@ -46,4 +46,6 @@ testem.log
 Thumbs.db
 
 # Other Files
-/home/billyporter/step/angular-portfolio/backend/src/main/webapp/style.css
+/backend/src/main/webapp/*.css
+/backend/src/main/webapp/*.js
+/backend/src/main/webapp/*.html

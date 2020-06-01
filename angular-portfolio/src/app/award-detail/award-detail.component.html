@@ -1,13 +1,13 @@
-<div *ngIf="award">
+<div *ngIf="awardYear">
     <div class="flex-container">
-        <div *ngFor="let awardloop of awards" 
+        <div *ngFor="let award of awards" 
           class="photo"
-          (mouseenter)="enter(awardloop)"
+          (mouseenter)="enter(award)"
           (mouseleave)="exit()">
-            <ng-container *ngIf="award === awardloop.year">
-                <img src={{awardloop.image}}>
+            <ng-container *ngIf="awardYear === award.year">
+                <img src={{award.image}}>
                 <div class="text-block">
-                    <h2 *ngIf="hoverIndex && awardloop===current">{{awardloop.description}}</h2>
+                    <h2 *ngIf="hoverIndex && award===current">{{award.description}}</h2>
                 </div>
             </ng-container>
         </div>
