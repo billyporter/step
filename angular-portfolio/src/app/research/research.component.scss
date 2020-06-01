@@ -1,0 +1,28 @@
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    height: 75vh;
+
+    div {
+        flex-direction: column;
+        padding-left: 50px;
+        padding-right: 50px;
+        width: 33%;
+        
+        h3 {
+            border-style: none none solid none;
+            border-color: blue;
+            font-size: 24px;
+            height: 20%;
+            padding-top: 30px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        p {
+            font-size: 20px;
+            line-height: 150%;
+            padding-top: 20px;
+        }
+    }
+}

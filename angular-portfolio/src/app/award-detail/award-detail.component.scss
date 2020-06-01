@@ -1,0 +1,25 @@
+
+.flex-container {
+    flex-direction: row;
+    display: flex;
+    height: 100%;
+    justify-content: space-between;
+    position: relative;
+
+    img {
+        max-height: 50vh;
+        max-width: 100%;
+    }
+
+    img:hover {
+        color: black;
+        filter: blur(5px);
+        opacity: 0.5;
+    } 
+}
+
+.text-block {
+    bottom: 20px;
+    max-width: 20%;
+    position: absolute;
+}
