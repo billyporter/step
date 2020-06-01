@@ -4,12 +4,11 @@
 
     .flex-container {
         align-items: center;
-        flex-direction: row;
         display: flex;
-        position: relative;
+        flex-direction: row;
 
         .years {
-            flex-direction: columns;
+            flex-direction: column;
             height: 100%;
             width: 20%;
 
@@ -21,15 +20,14 @@
         }
 
         .pictures {
-            width: 80%;
             height: 100%;
+            width: 80%;
         }
         
     }
 }
 
 button:hover {
-    color: "warn";
     opacity: 0.5;
 }
 

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Awards } from '../awardsTemplate';
+import { Awards } from '../awards-template';
 import { AwardsService } from '../awards.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { AwardsService } from '../awards.service';
 export class AwardDetailComponent implements OnInit {
 
   awards: Awards[];
-  @Input() award: Awards;
+  @Input() award: number;
   hoverIndex: number;
   current:  Awards;
 
@@ -25,15 +25,13 @@ export class AwardDetailComponent implements OnInit {
       .subscribe(awards => this.awards = awards);
   }
 
-  enter(current: Awards) {
-
+  enter(current: Awards): void {
     this.hoverIndex = 1;
     this.current = current;
   }
 
-  exit() {
+  exit(): void {
     this.hoverIndex = 0;
-    console.log('enter');
   }
 
 }

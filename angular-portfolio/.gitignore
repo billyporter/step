@@ -44,3 +44,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Other Files
+/home/billyporter/step/angular-portfolio/backend/src/main/webapp/style.css

@@ -1,7 +1,22 @@
+.bio {
+    flex: 50%;
+    margin-top: 5%;
+    text-align: center;
+}
+
 .flex-container {
     display: flex;
     flex-direction: row;
     height: 75vh;
+}
+
+p {
+    font-size: 24px;
+    line-height: 150%;
+    padding-left: 40px;
+    padding-top: 80px;
+    padding-right: 150px;
+    text-align: left;
 }
 
 .picture {
@@ -12,24 +27,8 @@
 .picture img {
     border-radius: 50%;
     width: 50%;
-    margin-left: auto;
-    margin-top: 3vh;
     margin-left: 35%;
-}
-
-.bio {
-    flex: 50%;
-    text-align: center;
-    margin-top: 5%;
-}
-
-p {
-    padding-left: 15%;
-    padding-top: 15%;
-    padding-right: 15%;
-    line-height: 150%;
-    font-size: 175%;
-    text-align: left;
+    margin-top: 3vh;
 }
 
 /* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */

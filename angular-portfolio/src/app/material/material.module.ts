@@ -6,7 +6,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
-const Material = [
+const material = [
   MatButtonModule,
   MatCardModule,
   MatTabsModule,
@@ -15,8 +15,8 @@ const Material = [
 ];
 
 @NgModule({
-  imports: [ Material ],
-  exports: [ Material ]
+  imports: material,
+  exports: material
 })
 export class MaterialModule { }
 

@@ -5,11 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './top-view.component.html',
   styleUrls: ['./top-view.component.scss']
 })
-export class TopViewComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+export class TopViewComponent {
 
 }

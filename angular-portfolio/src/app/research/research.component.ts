@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ResearchService } from '../research.service';
-import { Res } from '../resTemplate';
+import { Res } from '../res-template';
 
 @Component({
   selector: 'app-research',
@@ -11,15 +11,18 @@ export class ResearchComponent implements OnInit {
 
   research: Res[];
 
-  constructor(private researchService: ResearchService) { }
+  constructor(private researchService: ResearchService) {
+    this.getResearch();
+  }
 
   ngOnInit(): void {
-    this.getResearch();
   }
 
   getResearch(): void {
     this.researchService.getResearch()
-      .subscribe(research => this.research = research);
+      .subscribe(research => {
+        this.research = research;
+      });
   }
 
 }

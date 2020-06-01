@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
@@ -11,8 +10,6 @@ import { BioComponent } from './bio/bio.component';
 import { ResearchComponent } from './research/research.component';
 import { AwardsComponent } from './awards/awards.component';
 import { AwardDetailComponent } from './award-detail/award-detail.component';
-
-
 
 @NgModule({
   declarations: [

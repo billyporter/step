@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AwardsService } from '../awards.service';
-import { Awards } from '../awardsTemplate';
+import { Awards } from '../awards-template';
 
 @Component({
   selector: 'app-awards',
@@ -10,7 +10,7 @@ import { Awards } from '../awardsTemplate';
 export class AwardsComponent implements OnInit {
 
   awards: Awards[];
-  selectedAward: Awards;
+  selectedAwardYear: number;
 
   constructor(private awardService: AwardsService) { }
 
@@ -20,12 +20,13 @@ export class AwardsComponent implements OnInit {
 
   getAwards(): void {
     this.awardService.getAwards()
-      .subscribe(awards => this.awards = awards);
+      .subscribe(awards => {
+        this.awards = awards;
+      });
   }
 
   onSelect(award: Awards): void {
-    this.selectedAward = award;
-    console.log(award);
+    this.selectedAwardYear = award.year;
   }
 
 }

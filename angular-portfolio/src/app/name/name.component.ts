@@ -5,12 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './name.component.html',
   styleUrls: ['./name.component.scss']
 })
-export class NameComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+export class NameComponent {
 
   onExplore(): void {
     window.scrollTo({top: 500, left: 1200, behavior: 'smooth'});

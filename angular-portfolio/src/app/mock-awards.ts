@@ -1,4 +1,4 @@
-import { Awards } from './awardsTemplate';
+import { Awards } from './awards-template';
 
 export const AWARD: Awards[] = [
     {year: 2018, image: '../../assets/images/VR.JPG', description: 'Hesburgh-Yusko Scholarship'},
