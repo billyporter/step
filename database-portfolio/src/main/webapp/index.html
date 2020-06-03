@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body onload="getCommentSection()" onload="heyBilly()">
+  <body onload="loadCommentSection(5)">
     <div id="content">
       <h1>Billy Porter</h1>
       <p>Hi! My name is Billy Porter. I am a rising junior at the University of Notre Dame and am a
@@ -14,20 +14,21 @@
           soccer player and scubadiver, and I enjoy personal fitness.
       </p>
       <img src="./images/SpiceAlley.JPG" alt="Image in Spice Alley" width="300" height="400">
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomFact()">Fact</button>
-      <div id="fact-container"></div>
     </div>
     <div id="post-content">
+        <h3>Set Maximum Number of Comments</h3>
+        <label>Max (between 1 and 10, default is 5): </label>
+        <input type="number" id="limit" name="limit" min="1" max="10">
+        <button onclick="loadCommentSection(document.getElementById('limit').value)">Refresh</button>
         <h3>Comments: <h3>
         <div class="comment-section">
             <form action ="/comment-page" method="POST">
-                <label>Comment Text</label>
+                <label>Username</label>
                 <input type="text" name="user-comment">
                 <br><br>
-                <label>Username</label>
+                <label>Comment Text</label>
                 <input type="text" name="user-name">
-                <br/><br/>
+                <br><br>
                 <input type="submit" value="Comment"/>
             </form>
         </div>
