@@ -15,14 +15,11 @@
 
 
 function getCommentSection() {
-    fetch('/comment-page')
+    fetch('/create-comment')
     .then(response => response.json())
     .then((comment) => {
 
-    /* Build the list of comments.
-      comment = object of CommentSection
-      commentMap = Hash Map in Comment Section
-    */
+    // Build the list of comments.
     const commentLe = document.getElementById('post-content');
 
     for (let [user, userComment] of Object.entries(comment.commentMap)) {
@@ -71,7 +68,7 @@ async function heyBilly() {
 
 // Not in use, just for practice and reference
 function heyBillyArrow() {
-  fetch('/data')     .then(response => {
+  fetch('/data').then(response => {
     response.text()}).then((quote)  => {
     document.getElementById('hey-container').innerHTML = quote;
   });

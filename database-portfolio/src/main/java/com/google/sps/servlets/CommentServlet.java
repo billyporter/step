@@ -9,7 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/comment-page")
+/** Servlet responsible for creating comments. */
+@WebServlet("/create-comment")
 public class CommentServlet extends HttpServlet {
 
   @Override
@@ -28,7 +29,6 @@ public class CommentServlet extends HttpServlet {
 
     // Redirect back to the HTML page.
     response.sendRedirect("/index.html");
-
   }
 
   private String[] getUserComment(HttpServletRequest request) {
@@ -36,10 +36,7 @@ public class CommentServlet extends HttpServlet {
     String[] userComment = new String[2];
     userComment[0] = request.getParameter("user-name");
     userComment[1] = request.getParameter("user-comment");
-    
     // TODO: Validate Input
-
     return userComment;
   }
-
 }

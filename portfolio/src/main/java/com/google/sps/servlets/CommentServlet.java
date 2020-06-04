@@ -8,10 +8,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/comment-page")
+/** Servlet that creates a comment */
+@WebServlet("/create-comment")
 public class CommentServlet extends HttpServlet {
 
-  private CommentSection comment= new CommentSection();
+  private CommentSection comment = new CommentSection();
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -22,14 +23,12 @@ public class CommentServlet extends HttpServlet {
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
     // Get input from form
     String[] userComment = getUserComment(request);
     comment.postComment(userComment[0], userComment[1]);
 
     // Redirect back to the HTML page.
     response.sendRedirect("/index.html");
-
   }
 
   private String[] getUserComment(HttpServletRequest request) {

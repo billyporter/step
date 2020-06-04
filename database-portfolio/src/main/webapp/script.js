@@ -13,43 +13,36 @@
 // limitations under the License.
 //
 
+/** Loads and displays comments according to a limit */
 function loadCommentSection(commentLimit) {
-  
     // clear previous elements
     var currentDOM = document.getElementsByClassName('indiv-comments');
-    console.log(currentDOM);
     if (currentDOM != null) {
         console.log(currentDOM);
         Array.from(currentDOM).forEach(function (element) {
-            console.log(element);
             element.remove();
         })
     }
 
-    commentURL = '/list-comments?limit=' + commentLimit;
+    commentURL = `/list-comments?limit=${commentLimit}`
     fetch(commentURL)
-    .then(response => response.json())
-    .then((comments) => {
-
-    /* Build the list of comments.
-    */
-    const commentLe = document.getElementById('post-content');
-
-    comments.forEach((comment) => {
-      commentLe.appendChild(createCommentElement(comment));
-    })
-
-  });
+      .then(response => response.json())
+      .then((comments) => {
+      // Build the list of comments..
+      const commentLe = document.getElementById('post-content');
+      comments.forEach((comment) => {
+        commentLe.appendChild(createCommentElement(comment));
+      })
+    });
 }
 
 /** Creates an element that represents a task, including its delete button. */
 function createCommentElement(comment) {
   const commentElement = document.createElement('div');
-   commentElement.setAttribute('class', 'indiv-comments');
+  commentElement.setAttribute('class', 'indiv-comments');
 
   const pElement = document.createElement('p');
-  pElement.innerText = comment.user + ': ' + comment.commentText;
-
+  pElement.innerText = `${comment.user}: ${comment.commentText}`;
   const deleteButtonElement = document.createElement('button');
   deleteButtonElement.innerText = 'Delete';
   deleteButtonElement.addEventListener('click', () => {
@@ -64,10 +57,8 @@ function createCommentElement(comment) {
   return commentElement;
 }
 
-
 /** Tells the server to delete the task. */
 function deleteComment(comment) {
-  const params = new URLSearchParams();
-  params.append('id', comment.id);
-  fetch('/delete-comment', {method: 'POST', body: params});
+  const deleteString = `/delete-comment?id=${comment.id}`;
+  fetch(deleteString, {method: 'DELETE'});
 }
