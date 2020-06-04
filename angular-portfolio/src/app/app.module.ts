@@ -10,6 +10,7 @@ import { BioComponent } from './bio/bio.component';
 import { ResearchComponent } from './research/research.component';
 import { AwardsComponent } from './awards/awards.component';
 import { AwardDetailComponent } from './award-detail/award-detail.component';
+import { HttpClientModule }    from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,12 +21,13 @@ import { AwardDetailComponent } from './award-detail/award-detail.component';
     BioComponent,
     ResearchComponent,
     AwardsComponent,
-    AwardDetailComponent
+    AwardDetailComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

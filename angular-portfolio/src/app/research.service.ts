@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Res } from './res-template';
-import { RESES } from './mock-research';
 import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,13 @@ import { Observable, of } from 'rxjs';
 
 export class ResearchService {
 
+  private researchUrl = '/load-research';
+
+  constructor(private http: HttpClient) {}
+
+  /** GET research from server */
   getResearch(): Observable<Res[]> {
-    return of(RESES);
+    return this.http.get<Res[]>(this.researchUrl);
   }
+  
 }
