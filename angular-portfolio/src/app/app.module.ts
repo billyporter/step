@@ -10,7 +10,7 @@ import { BioComponent } from './bio/bio.component';
 import { ResearchComponent } from './research/research.component';
 import { AwardsComponent } from './awards/awards.component';
 import { AwardDetailComponent } from './award-detail/award-detail.component';
-import { HttpClientModule }    from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [

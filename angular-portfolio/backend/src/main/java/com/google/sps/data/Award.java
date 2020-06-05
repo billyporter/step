@@ -2,7 +2,6 @@ package com.google.sps.data;
 
 /** An item on a award list. */
 public final class Award {
-
   private final long year;
   private final String image;
   private final String description;

@@ -1,9 +1,7 @@
 package com.google.sps.servlets;
 
-
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
-
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -28,7 +26,8 @@ public class ResearchServlet extends HttpServlet {
       Entity researchEntity = new Entity("Research", "first");
       researchEntity.setProperty("title", "Massachusetts General Hospital");
       researchEntity.setProperty("date", "November 2016 - Aug 2018");
-      researchEntity.setProperty("outcome", "Solved a  65-year old problem by the creation the MAD-Score: a statistical" +
+      researchEntity.setProperty("outcome", "Solved a  65-year old problem by the " +
+      "creation the MAD-Score: a statistical" +
       "comparison metric for identifying differentially abundant cell populations in" +
       "low-sample size CyTOF data that is >25% more accurate than the industry standard" +
       "and for outlier detection with >95% accuracy.");

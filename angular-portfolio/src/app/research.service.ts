@@ -6,12 +6,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-
 export class ResearchService {
 
   private researchUrl = '/load-research';
 
-  constructor(private http: HttpClient) {}
+  constructor(private readonly http: HttpClient) {}
 
   /** GET research from server */
   getResearch(): Observable<Res[]> {
