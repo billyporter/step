@@ -69,7 +69,8 @@ async function heyBilly() {
 // Not in use, just for practice and reference
 function heyBillyArrow() {
   fetch('/data').then(response => {
-    response.text()}).then((quote)  => {
+    response.text();
+    }).then((quote)  => {
     document.getElementById('hey-container').innerHTML = quote;
   });
 }

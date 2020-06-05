@@ -24,15 +24,15 @@ function loadCommentSection(commentLimit) {
         })
     }
 
-    commentURL = `/list-comments?limit=${commentLimit}`
+    commentURL = `/list-comments?limit=${commentLimit}`;
     fetch(commentURL)
       .then(response => response.json())
       .then((comments) => {
-      // Build the list of comments..
+      // Build the list of comments.
       const commentLe = document.getElementById('post-content');
-      comments.forEach((comment) => {
+      for (let comment of comments) {
         commentLe.appendChild(createCommentElement(comment));
-      })
+      }
     });
 }
 

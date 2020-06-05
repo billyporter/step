@@ -18,7 +18,6 @@ public class DeleteServlet extends HttpServlet {
   public void doDelete(HttpServletRequest request, HttpServletResponse response) throws IOException {
     long id = Long.parseLong(request.getParameter("id"));
     Key commentEntityKey = KeyFactory.createKey("Comment", id);
-    System.out.println("\n\ncommentEntityKey is : \n\n" + commentEntityKey);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     datastore.delete(commentEntityKey);
   }
