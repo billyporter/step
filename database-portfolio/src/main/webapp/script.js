@@ -28,7 +28,7 @@ async function loadCommentSection(commentLimit) {
     // clear previous elements to refresh login status
     var loginDOM = document.getElementsByClassName('login');
     if (loginDOM != null) {
-        Array.from(currentDM).forEach(function (element) {
+        Array.from(loginDOM).forEach(function (element) {
             element.remove();
         })
     }
