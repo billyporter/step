@@ -36,7 +36,7 @@ async function loadCommentSection(commentLimit) {
     // clear previous elements to refresh comments
     var commentDOM = document.getElementsByClassName('indiv-comments');
     if (commentDOM != null) {
-        Array.from(currentDOM).forEach(function (element) {
+        Array.from(commentDOM).forEach(function (element) {
             element.remove();
         })
     }
