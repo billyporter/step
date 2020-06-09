@@ -68,11 +68,11 @@ public class AwardsServlet extends HttpServlet {
     response.getWriter().println(gson.toJson(awards));
   }
 
-  private Entity createNewEntity(Entity awardEntity, string key, long year, string image, string description) {
+  private Entity createNewEntity(String key, long year, String image, String description) {
     Entity awardEntity = new Entity("award", key);
     awardEntity.setProperty("year", year);
     awardEntity.setProperty("image", "../../assets/images/" + image);
     awardEntity.setProperty("description", description);
-    return Entity;
+    return awardEntity;
   }
 }
