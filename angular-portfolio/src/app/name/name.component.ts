@@ -9,7 +9,6 @@ export class NameComponent {
 
   onExplore(): void {
     window.scrollTo({top: 500, left: 1200, behavior: 'smooth'});
-    console.log("yabadabadoo");
   }
 
 }
