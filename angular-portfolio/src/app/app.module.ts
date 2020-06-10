@@ -11,6 +11,8 @@ import { ResearchComponent } from './research/research.component';
 import { AwardsComponent } from './awards/awards.component';
 import { AwardDetailComponent } from './award-detail/award-detail.component';
 import { HttpClientModule } from '@angular/common/http';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { SkillsComponent } from './skills/skills.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,14 @@ import { HttpClientModule } from '@angular/common/http';
     ResearchComponent,
     AwardsComponent,
     AwardDetailComponent,
+    SkillsComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
+    NgxChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
