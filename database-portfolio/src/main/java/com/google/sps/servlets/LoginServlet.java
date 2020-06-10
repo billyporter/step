@@ -1,5 +1,7 @@
 package com.google.sps.servlets;
 
+import com.google.gson.Gson;
+import com.google.sps.data.Login;
 import com.google.appengine.api.users.UserService;
 import com.google.appengine.api.users.UserServiceFactory;
 import java.io.IOException;
@@ -14,22 +16,26 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/plain");
-    
         UserService userService = UserServiceFactory.getUserService();
+        String userEmail = "";
+        String urlToRedirectToAfterUserLogsOut = "/";
+        String logoutUrl = "";
+        String loginUrl = "";
+        int loginStatus = 0;
+
         if (userService.isUserLoggedIn()) {
-          String userEmail = userService.getCurrentUser().getEmail();
-          String urlToRedirectToAfterUserLogsOut = "/";
-          String logoutUrl = userService.createLogoutURL(urlToRedirectToAfterUserLogsOut);
-          response.getWriter().println("Y");
-          response.getWriter().println("<h2>Hello " + userEmail + "!</h2>");
-          response.getWriter().println("<p>Logout <a href=\"" + logoutUrl + "\">here</a>.</p>");
+          userEmail = userService.getCurrentUser().getEmail();
+          urlToRedirectToAfterUserLogsOut = "/";
+          logoutUrl = userService.createLogoutURL(urlToRedirectToAfterUserLogsOut);
+          loginStatus = 1;
         } else {
           String urlToRedirectToAfterUserLogsIn = "/";
-          String loginUrl = userService.createLoginURL(urlToRedirectToAfterUserLogsIn);
-          response.getWriter().println("N");
-          response.getWriter().println("<h2>Hello. Please Login to Comment.</h2>");
-          response.getWriter().println("<p>Login <a href=\"" + loginUrl + "\">here</a>.</p>");
+          loginUrl = userService.createLoginURL(urlToRedirectToAfterUserLogsIn);
         }
-      }
+
+        Login userLogin = new Login(userEmail, urlToRedirectToAfterUserLogsOut, loginUrl, logoutUrl, loginStatus);
+        Gson gson = new Gson();
+        response.setContentType("application/json;");
+        response.getWriter().println(gson.toJson(userLogin));
+    }
 }

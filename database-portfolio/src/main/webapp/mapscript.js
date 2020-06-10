@@ -122,9 +122,9 @@ function createMap() {
 /** Fetches markers from the backend and adds them to the map. */
 function fetchMarkers() {
   fetch('/markers').then(response => response.json()).then((markers) => {
-    markers.forEach(
-        (marker) => {
-            createMarkerForDisplay(marker.lat, marker.lng, marker.content)});
+    for (marker of markers) {
+      createMarkerForDisplay(marker.lat, marker.lng, marker.content);
+    }
   });
 }
 
