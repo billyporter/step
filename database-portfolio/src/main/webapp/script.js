@@ -28,7 +28,7 @@ async function loadCommentSection(commentLimit) {
     // clear previous elements to refresh login status
     const loginDOM = document.getElementsByClassName('login');
     if (loginDOM != null) {
-        for (element of Array.from(loginDOM)) {
+        for (const element of Array.from(loginDOM)) {
             element.remove();
         }
     }
@@ -36,7 +36,7 @@ async function loadCommentSection(commentLimit) {
     // clear previous elements to refresh comments
     const commentDOM = document.getElementsByClassName('indiv-comments');
     if (commentDOM != null) {
-        for (element of Array.from(commentDOM)) {
+        for (const element of Array.from(commentDOM)) {
             element.remove();
         }
     }
@@ -51,11 +51,11 @@ async function loadCommentSection(commentLimit) {
         fetch(commentURL)
         .then(response => response.json())
         .then(comments => {
-        // Build the list of comments.
-        const commentLe = document.getElementById('post-content');
-        for (comment of comments) {
-            commentLe.appendChild(createCommentElement(comment));
-        }
+            // Build the list of comments.
+            const commentLe = document.getElementById('post-content');
+            for (const comment of comments) {
+                commentLe.appendChild(createCommentElement(comment));
+            }
         });
     }
     else {
@@ -70,7 +70,7 @@ function createLoggedInSection(userInfo) {
     const greetUser = document.createElement('h2');
     greetUser.innerText = `Hello ${userInfo.userEmail}!`;
     const logoutElement = document.createElement('button');
-    logoutElement.innerHTML = `Logout`;
+    logoutElement.innerHTML = 'Logout';
     logoutElement.onclick = () => {
         location.href=`${userInfo.logoutUrl}`;
     }
@@ -85,10 +85,10 @@ function createLoggedOutSection(userInfo) {
     const divForLogout = document.createElement('div')
     divForLogout.setAttribute('class', 'login');
     const greetUser = document.createElement('h2');
-    greetUser.innerText = `Hello, please login!`;
+    greetUser.innerText = 'Hello, please login!';
     const loginElement = document.
     createElement('button');
-    loginElement.innerHTML = `Login`;
+    loginElement.innerHTML = 'Login';
     loginElement.onclick = () => {
         location.href=`${userInfo.loginUrl}`;
     }

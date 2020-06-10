@@ -122,7 +122,7 @@ function createMap() {
 /** Fetches markers from the backend and adds them to the map. */
 function fetchMarkers() {
   fetch('/markers').then(response => response.json()).then((markers) => {
-    for (marker of markers) {
+    for (const marker of markers) {
       createMarkerForDisplay(marker.lat, marker.lng, marker.content);
     }
   });
