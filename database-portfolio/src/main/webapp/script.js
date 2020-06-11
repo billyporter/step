@@ -13,52 +13,110 @@
 // limitations under the License.
 //
 
+async function getUserLoginStatus() {
+    const url = '/login';
+    const response = await fetch(url);
+    const loginJSON = await response.json();
+    return loginJSON;
+}
+
 /** Loads and displays comments according to a limit */
-function loadCommentSection(commentLimit) {
-    // clear previous elements
-    var currentDOM = document.getElementsByClassName('indiv-comments');
-    if (currentDOM != null) {
-        console.log(currentDOM);
-        Array.from(currentDOM).forEach(function (element) {
+async function loadCommentSection(commentLimit) {
+    const userLoginInfo = await getUserLoginStatus();
+    const isLoggedIn = userLoginInfo.loginStatus;
+
+    // clear previous elements to refresh login status
+    const loginDOM = document.getElementsByClassName('login');
+    if (loginDOM != null) {
+        for (const element of Array.from(loginDOM)) {
             element.remove();
-        })
+        }
     }
 
-    commentURL = `/list-comments?limit=${commentLimit}`;
-    fetch(commentURL)
-      .then(response => response.json())
-      .then((comments) => {
-      // Build the list of comments.
-      const commentLe = document.getElementById('post-content');
-      for (let comment of comments) {
-        commentLe.appendChild(createCommentElement(comment));
-      }
-    });
+    // clear previous elements to refresh comments
+    const commentDOM = document.getElementsByClassName('indiv-comments');
+    if (commentDOM != null) {
+        for (const element of Array.from(commentDOM)) {
+            element.remove();
+        }
+    }
+
+    // if user is logged in, display comments
+    const loginSection = document.getElementById('content');
+    if (isLoggedIn) {
+        loginSection.appendChild(createLoggedInSection(userLoginInfo));
+        document.getElementById('comment').value = userLoginInfo.userEmail;
+        document.getElementById('post-content').style.display = "block";
+        const commentURL = `/list-comments?limit=${commentLimit}`;
+        fetch(commentURL)
+        .then(response => response.json())
+        .then(comments => {
+            // Build the list of comments.
+            const commentLe = document.getElementById('post-content');
+            for (const comment of comments) {
+                commentLe.appendChild(createCommentElement(comment));
+            }
+        });
+    }
+    else {
+        loginSection.appendChild(createLoggedOutSection(userLoginInfo));    
+        document.getElementById('post-content').style.display = "none";
+    }
+}
+
+/** Creates a section based on user being logged in. */
+function createLoggedInSection(userInfo) {
+    const divForLogin = document.createElement('div')
+    const greetUser = document.createElement('h2');
+    greetUser.innerText = `Hello ${userInfo.userEmail}!`;
+    const logoutElement = document.createElement('button');
+    logoutElement.innerHTML = 'Logout';
+    logoutElement.onclick = () => {
+        location.href=`${userInfo.logoutUrl}`;
+    }
+    divForLogin.setAttribute('class', 'login');
+    divForLogin.appendChild(greetUser);
+    divForLogin.appendChild(logoutElement);
+    return divForLogin;
+}
+
+/** Creates a section based on user being logged out. */
+function createLoggedOutSection(userInfo) {
+    const divForLogout = document.createElement('div')
+    divForLogout.setAttribute('class', 'login');
+    const greetUser = document.createElement('h2');
+    greetUser.innerText = 'Hello, please login!';
+    const loginElement = document.
+    createElement('button');
+    loginElement.innerHTML = 'Login';
+    loginElement.onclick = () => {
+        location.href=`${userInfo.loginUrl}`;
+    }
+    divForLogout.setAttribute('class', 'login');
+    divForLogout.appendChild(greetUser);
+    divForLogout.appendChild(loginElement);
+    return divForLogout;
 }
 
 /** Creates an element that represents a task, including its delete button. */
 function createCommentElement(comment) {
-  const commentElement = document.createElement('div');
-  commentElement.setAttribute('class', 'indiv-comments');
-
-  const pElement = document.createElement('p');
-  pElement.innerText = `${comment.user}: ${comment.commentText}`;
-  const deleteButtonElement = document.createElement('button');
-  deleteButtonElement.innerText = 'Delete';
-  deleteButtonElement.addEventListener('click', () => {
+    const commentElement = document.createElement('div');
+    commentElement.setAttribute('class', 'indiv-comments');
+    const pElement = document.createElement('p');
+    pElement.innerText = `${comment.user}: ${comment.commentText}`;
+    const deleteButtonElement = document.createElement('button');
+    deleteButtonElement.innerText = 'Delete';
+    deleteButtonElement.addEventListener('click', () => {
     deleteComment(comment);
-
-    // Remove the comment from the DOM.
     commentElement.remove();
-  });
-
-  commentElement.appendChild(pElement);
-  commentElement.appendChild(deleteButtonElement);
-  return commentElement;
+    });
+    commentElement.appendChild(pElement);
+    commentElement.appendChild(deleteButtonElement);
+    return commentElement;
 }
 
 /** Tells the server to delete the task. */
 function deleteComment(comment) {
-  const deleteString = `/delete-comment?id=${comment.id}`;
-  fetch(deleteString, {method: 'DELETE'});
+    const deleteString = `/delete-comment?id=${comment.id}`;
+    fetch(deleteString, {method: 'DELETE'});
 }
