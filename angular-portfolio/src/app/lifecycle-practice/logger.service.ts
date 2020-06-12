@@ -1,25 +1,24 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root',
 })
 export class LoggerService {
+    messages: string[] = [];
+    messageGross: number;
 
-  messages: string[] = [];
-  messageGross: number;
-
-  log(msg: string) {
-    if (!this.messageGross) {
-      this.messageGross = 1;
+    log(msg: string) {
+        if (!this.messageGross) {
+            this.messageGross = 1;
+        } else {
+            this.messageGross += 1;
+        }
+        this.messages.push(
+            `Message Gross: ${this.messageGross} Mesage: ${msg}`
+        );
     }
-    else {
-      this.messageGross += 1;
+
+    clear() {
+        this.messages = [];
     }
-    this.messages.push(`Message Gross: ${this.messageGross} Mesage: ${msg}`);
-  }
-
-  clear() {
-    this.messages = [];
-  }
-
 }

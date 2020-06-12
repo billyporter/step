@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-import { skills } from '../skillsdata';
+import { SKILLS } from '../skillsdata';
 
 @Component({
   selector: 'app-skills',
@@ -10,7 +10,7 @@ import { skills } from '../skillsdata';
 })
 export class SkillsComponent {
 
-    skills: any[];
+    SKILLS: any[];
 
     // options
     barPadding = 20;
@@ -19,7 +19,7 @@ export class SkillsComponent {
     showXAxis = true;
     showYAxis = true;
     showYAxisLabel = true;
-    view: number[] = [1500, 500];
+    view: number[] = [1000, 350];
     xAxisLabel = 'Percent';
     yAxisLabel = 'Skill';
 
@@ -28,7 +28,7 @@ export class SkillsComponent {
     };
 
     constructor() {
-      Object.assign(this, { skills });
+      Object.assign(this, { SKILLS });
     }
 
     onSelect(data: any): void {

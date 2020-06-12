@@ -1,3 +1,4 @@
+import { LifecyclePracticeModule } from './lifecycle-practice/lifecycle-practice.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -31,7 +32,8 @@ import { SkillsComponent } from './skills/skills.component';
     BrowserAnimationsModule,
     MaterialModule,
     HttpClientModule,
-    NgxChartsModule
+    NgxChartsModule,
+    LifecyclePracticeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
