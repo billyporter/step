@@ -5,14 +5,10 @@ import { Injectable } from '@angular/core';
 })
 export class LoggerService {
     messages: string[] = [];
-    messageGross: number;
+    messageGross = 0;
 
     log(msg: string) {
-        if (!this.messageGross) {
-            this.messageGross = 1;
-        } else {
-            this.messageGross += 1;
-        }
+        this.messageGross += 1;
         this.messages.push(
             `Message Gross: ${this.messageGross} Mesage: ${msg}`
         );
