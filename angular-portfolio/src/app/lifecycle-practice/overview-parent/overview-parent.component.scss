@@ -1,0 +1,37 @@
+.parent {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+
+    .changeElements {
+        height: 50%;
+        width: 50%;
+    }
+
+    .colorBar {
+        width: 50%;
+
+        .flex-styles {
+            display: flex;
+            flex-direction: row;
+
+            div {
+                height: 60px;
+                width: 60px;
+            }
+        }
+
+        .flex-column {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            div {
+                height: 60px;
+                opacity: 0.8;
+                text-align: center;
+                width: 150px;
+            }
+        }
+    }
+}

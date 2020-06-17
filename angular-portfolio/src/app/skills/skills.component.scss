@@ -1,0 +1,61 @@
+$color-bg-med: #2f3646;
+$color-text-med: #A0AABE;
+
+.flex-container {
+
+    background: #1b1e27;
+    display: flex;
+    flex-direction: row;
+    height: 75vh;
+    justify-content: center;
+
+    .chart {
+        color: white;
+        font-family: Lato;
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+}
+
+::ng-deep ngx-charts-bar-horizontal {
+    
+    text {
+        fill: $color-text-med !important;
+    }
+
+    .gridline-path {
+        stroke: $color-bg-med;
+    }
+
+    .reference-area {
+        fill: #fff;
+    }
+
+    .chart-legend {
+        .legend-labels {
+            background: rgba(255, 255, 255, 0.05) !important;
+        }
+
+        .legend-item {
+            &:hover {
+                color: #fff;
+            }
+        }
+
+        .legend-label {
+            &:hover {
+                color: #fff !important;
+            }
+
+            .active {
+                .legend-label-text {
+                    color: #fff !important;
+                }
+            }
+        }
+
+        .scale-legend-label {
+            color: $color-text-med;
+        }
+    }
+}

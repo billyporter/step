@@ -1,0 +1,21 @@
+<div class="flex-container">
+    <div class="chart">
+        <ngx-charts-bar-horizontal
+            (activate)="onActivate($event)"
+            [barPadding]="barPadding"
+            (deactivate)="onDeactivate($event)"
+            [gradient]="gradient"
+            [legend]="showLegend"
+            [results]="SKILLS"
+            [scheme]="colorScheme"
+            (select)="onSelect($event)"
+            [showYAxisLabel]="showYAxisLabel"
+            [view]="view"
+            [xAxis]="showXAxis"
+            [xAxisLabel]="xAxisLabel"
+            [xAxisTickFormatting]="formatPercent"
+            [yAxis]="showYAxis"
+            [yAxisLabel]="yAxisLabel">
+        </ngx-charts-bar-horizontal>
+    </div>
+</div>

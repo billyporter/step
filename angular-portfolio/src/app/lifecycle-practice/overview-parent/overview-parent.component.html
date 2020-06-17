@@ -1,0 +1,41 @@
+<div class="parent">
+    <div class="changeElements">
+        <h2>Overview</h2>
+        <button (click)="toggleChild()">
+            {{ hasChild ? 'Destroy' : 'Create' }} Overview Component
+        </button>
+        <button (click)="updateName()" [hidden]="!hasChild">
+            Update Name
+        </button>
+        <app-overview
+            *ngIf="hasChild"
+            [name]="name"
+            (hookColorArray)="changeColors($event)">
+        </app-overview>
+        <h4>-- Lifecycle Hook Log --</h4>
+        <div *ngFor="let msg of hookLog">
+            {{ msg }}
+        </div>
+    </div>
+    <div class="colorBar">
+        <h2>Lifecycle Visualized:</h2>
+        <div class="flex-styles">
+            <ng-container *ngIf="hookColorArray">
+                <div *ngFor="let color of hookColorArray">
+                    <div [style.background-color]="color"></div>
+                </div>
+            </ng-container>
+        </div>
+        <div class="flex-column">
+            <div></div>
+            <div [style.background-color]="'red'">OnInit</div>
+            <div [style.background-color]="'orange'">OnChanges</div>
+            <div [style.background-color]="'yellow'">DoCheck</div>
+            <div [style.background-color]="'green'">AfterContentInit</div>
+            <div [style.background-color]="'blue'">AfterContentChecked</div>
+            <div [style.background-color]="'indigo'">AfterViewInit</div>
+            <div [style.background-color]="'violet'">AfterViewChecked</div>
+            <div [style.background-color]="'pink'">OnDestroy</div>
+        </div>
+    </div>
+</div>
