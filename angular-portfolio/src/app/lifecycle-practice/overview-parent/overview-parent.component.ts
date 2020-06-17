@@ -11,12 +11,10 @@ export class OverviewParentComponent {
     hookColorArray: string[] = [];
     name: string;
     hasChild = false;
-    private possibleNames = ['Billy', 'Matt', 'Nicholas', 'Sarah', 'Sofia'];
+    private readonly possibleNames = ['Billy', 'Matt', 'Nicholas', 'Sarah', 'Sofia'];
     private nextName: string;
-    private logger: LoggerService;
 
-    constructor(logger: LoggerService) {
-        this.logger = logger;
+    constructor(private readonly logger: LoggerService) {
         this.hookLog = logger.messages;
     }
 

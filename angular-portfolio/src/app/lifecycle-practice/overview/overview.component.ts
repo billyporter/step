@@ -36,15 +36,12 @@ export class OverviewComponent
     private flipflopColors: string[] = [];
     private stateColorMapping = new Map();
     private verb = 'initialized';
-    private logger: LoggerService;
 
-    constructor(logger: LoggerService) {
+    constructor(private readonly logger: LoggerService) {
         this.setColors();
-        this.logger = logger;
     }
 
     flipflopEnable(): void {
-        console.log('Flip: ' + this.flipflopColors);
         this.hookColorArray.emit(this.flipflopColors);
         this.flipflopColors = [];
     }
