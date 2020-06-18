@@ -65,15 +65,15 @@ public final class FindMeetingQuery {
         int addStart, addEnd, start, end;
 
         // Loop through array, if bigger than duration then add to output
-        for (int a = 0; a < openingsArray.length; a += 2) {
+        for (int i = 0; i < openingsArray.length; i += 2) {
             addStart = 5;
             addEnd = 5;
-            if (openingsArray[a] == TimeRange.START_OF_DAY)
+            if (openingsArray[i] == TimeRange.START_OF_DAY)
                 addStart = 0;
-            if (openingsArray[a + 1] >= TimeRange.END_OF_DAY)
+            if (openingsArray[i + 1] >= TimeRange.END_OF_DAY)
                 addEnd = 0;
-            start = openingsArray[a] - addStart;
-            end = openingsArray[a + 1] + addEnd;
+            start = openingsArray[i] - addStart;
+            end = openingsArray[i + 1] + addEnd;
             if (end - start >= request.getDuration()) {
                 meetingTimes.add(TimeRange.fromStartEnd(start, end, false));
             }
@@ -87,8 +87,8 @@ public final class FindMeetingQuery {
      */
     public BitSet timeRangeToBitSet(ArrayList<TimeRange> timeRanges, int sizeOfBitSet) {
         BitSet condensedSet = new BitSet(sizeOfBitSet);
-        for (int c = 0; c < timeRanges.size(); c++) {
-            condensedSet.set(timeRanges.get(c).start(), timeRanges.get(c).end() + 1);
+        for (int i = 0; i < timeRanges.size(); i++) {
+            condensedSet.set(timeRanges.get(i).start(), timeRanges.get(i).end() + 1);
         }
         return condensedSet;
     }
