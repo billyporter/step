@@ -14,6 +14,7 @@ import { AwardDetailComponent } from './award-detail/award-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { SkillsComponent } from './skills/skills.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { SkillsComponent } from './skills/skills.component';
     HttpClientModule,
     NgxChartsModule,
     LifecyclePracticeModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
