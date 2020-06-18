@@ -12,7 +12,7 @@ export class AwardDetailComponent implements OnInit {
   awards: Awards[];
   @Input() awardYear: number;
   hoverIndex: number;
-  current:  Awards;
+  current: Awards;
 
   constructor(private awardService: AwardsService) { }
 
